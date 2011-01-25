@@ -1,0 +1,46 @@
+ ----------
+| Ruby Wow |
+ ----------
+ 
+A Ruby development plugin for Notepad++.
+ 
+Features:
+---------
+
+* Auto-insert 'end' keywords after 'if', 'class', 'def', etc...
+* Auto-insert closing array bracket (']') when '[' is typed.
+* Execute a .rb script with a hotkey (<shift> + <ctrl> + y).
+* Execute a single unit test method with a hotkey (<shift> + <ctrl> + t).
+
+Requirements:
+-------------
+
+* Notepad++ (http://notepad-plus-plus.org/).
+* .NET 2.0 or greater. (RubyWow is written in C# on .NET 2).
+
+Installing RubyWow:
+------------------
+
+RubyWow requires these files be copied into Notepad++'s 'plugins' directory.
+Both can be copied from the RubyWow \bin directory.
+
+{notepad++ install dir}\plugins\RubyWow.dll
+{notepad++ install dir}\plugins\RubyWow\ (create this directory)
+{notepad++ install dir}\plugins\RubyWow\RubyWow.dll
+{notepad++ install dir}\plugins\RubyWow\RubyWow.pdb (optional)
+
+These 2 .dlls have the same file name, but are different files.
+One of them goes in a \RubyWow subdirectory.
+
+Once installed, there will be a 'RubyWow' submenu in the Notepad++ 'Plugins' menu.
+
+The first thing you should do is open the menu item
+  Plugins | RubyWow | Settings...
+In the Settings screen, set the path to the Ruby.exe executable.
+This will enable RubyWow to run scripts and tests.
+ 
+Feature Requests:
+-----------------
+
+If you have any ideas for additional functionality, please
+submit them in the 'issues' on GitHub.
