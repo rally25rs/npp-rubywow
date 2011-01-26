@@ -108,7 +108,7 @@ namespace NppPluginNET
             pluginBase.frmOutput.RunCommand(startPath, pluginBase.settings.RubyPath + "\\ruby", string.Format("{0}{1}", remainingPath, fi.Name));
         }
 
-        internal void RunMethod(FileInfo fi, string methodName)
+        internal void RunMethod(FileInfo fi, string methodName, bool asRegex)
         {
             if (!CheckRubyPath())
                 return;
@@ -116,7 +116,7 @@ namespace NppPluginNET
             string startPath, remainingPath;
             FindStartPath(fi.Directory, out startPath, out remainingPath);
             pluginBase.showOutputDialog();
-            pluginBase.frmOutput.RunCommand(fi.DirectoryName, pluginBase.settings.RubyPath + "\\ruby", string.Format("{0}{1} -n \"{2}\"", fi.Name, methodName));
+            pluginBase.frmOutput.RunCommand(fi.DirectoryName, pluginBase.settings.RubyPath + "\\ruby", string.Format("{0}{1} -n \"{2}\"", fi.Name, (asRegex ? "\"/" + methodName + "/\"" : methodName)));
         }
     }
 }

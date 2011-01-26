@@ -104,25 +104,45 @@ namespace NppPluginNET
 
         // now start at the current line and go backwards until we find the method name for this test.
         var testMethodRegex = new Regex(@"^\s*def\s*(test_[A-Za-z0-9_\-\!\?]+)");
+        var railsTestRegex = new Regex(@"^\s*test\s+[\""\'](*+)[\""\']\s+do");
+        var shouldaTestRegex = new Regex(@"^\s*should\s+[\""\'](*+)[\""\']\s+do");
+        var asRegex = false;
         string testMethodName = null;
         for (int i = 0; i < lines.Length; i++)
         {
+          // TestUnit
           var match = testMethodRegex.Match(lines[i]);
           if (match.Success)
           {
             testMethodName = match.Groups[1].Value;
             break;
           }
+          // Rails
+          match = railsTestRegex.Match(lines[i]);
+          if (match.Success)
+          {
+            testMethodName = match.Groups[1].Value.Replace(' ', '_');
+            asRegex = true;
+            break;
+          }
+          // Shoulda
+          match = shouldaTestRegex.Match(lines[i]);
+          if (match.Success)
+          {
+              testMethodName = "should " + match.Groups[1].Value;
+              asRegex = true;
+              break;
+          }
         }
 
         if (testMethodName == null)
         {
-          MessageBox.Show("Unable to determine test method name, looking for \"def test_*\".");
+          MessageBox.Show("Unable to determine test method name.");
           return;
         }
 
         // so far so good.. now run it.
-        scriptRunner.RunMethod(fi, testMethodName);
+        scriptRunner.RunMethod(fi, testMethodName, asRegex);
       }
       catch (Exception ex)
       {
