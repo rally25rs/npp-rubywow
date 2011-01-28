@@ -1,2 +1,6 @@
 *.suo
 RubyWow/obj/
+RubyWow/bin
+RubyWowLoader/Debug/
+RubyWowLoader/Release/
+RubyWowLoader/bin/

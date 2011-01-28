@@ -16,10 +16,10 @@ namespace NppPluginNET
         #endregion
 
         #region " Notepad++ callbacks "
-        public PluginBase(string pluginBaseName)
+        public PluginBase()
         {
-            _pluginBaseName = pluginBaseName;
-            _pluginModuleName = pluginBaseName + ".dll";
+            _pluginBaseName = "RubyWow";
+            _pluginModuleName = "RubyWow.dll";
         }
         public bool __isUnicode()
         {
