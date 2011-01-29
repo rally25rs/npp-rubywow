@@ -24,14 +24,13 @@ Installing RubyWow:
 RubyWow requires these files be copied into Notepad++'s 'plugins' directory.
 Both can be copied from the RubyWow directory:
 
-https://github.com/rally25rs/npp-rubywow/tree/master/RubyWow/bin/Debug
+https://github.com/rally25rs/npp-rubywow/tree/master/bin/Release
 
 Copy the contents into:
 
 {notepad++ install dir}\plugins\
                                 RubyWow.dll
                                 RubyWow\RubyWow.dll
-                                RubyWow\RubyWow.pdb (optional)
 
 These 2 .dlls have the same file name, but are different files.
 One of them goes in a \RubyWow subdirectory.
